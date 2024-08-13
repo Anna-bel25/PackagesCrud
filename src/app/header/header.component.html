@@ -1,0 +1,92 @@
+<link rel="shortcut icon" href="assets/img/airplane.png" type="image/x-icon" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css"/>
+
+<link href="https://fonts.googleapis.com/css2? family=Montserrat:ital,wght@0,300;0,500;0,900;1,300;1,500;1,800&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+
+<!-- START HEADER SECTION -->
+<header>
+
+  <!-- <a href="#" class="logo"
+    ><i class="fi fi-sr-plane"></i> Travel<span>To</span>
+  </a>
+
+  <nav class="navbar">
+    <a href="#">Vuelos</a>
+    <a href="#">Alojamientos</a>
+    <a href="#">Paquetes de viaje</a>
+   <p ngIf="mostrarUsuario" class="letra-usuario"> Bienvenid@, {{ nombreUsuario}} </p>
+  </nav>
+
+  <div class="icons">
+    <div class="fas fa-bars" id="menu-btn"></div>
+    <div class="fas fa-search" id="search-btn"></div>
+    <div class="fas fa-shopping-cart" id="cart-btn"></div>
+    <div *ngIf="showFirstElement" class="fas fa-user" id="login-btn" (click)="openDialogSesion()" ></div>
+    <div *ngIf="showSecondElement" class="fa-solid fa-right-from-bracket" (click)="cerrarSesion()" style="color: white; background-color: #ce2c2c;" id="login-btn"></div> -->
+
+    
+  
+
+
+<!-- ORIGINAL VER2 !!!!! -->
+
+  <a href="#" class="logo"
+  ><i class="fi fi-sr-plane"></i> Travel<span>To</span>
+</a>
+
+  <label for="menu" class="nav-label">
+    <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </div>
+</label>
+
+<input type="checkbox" id="menu" class="nav-input" />
+
+<div class="navbar">
+  <a href="" class="nav-item" *ngIf="isLoggedIn()">Vuelos</a>
+  <a href="" class="nav-item" *ngIf="isLoggedIn()">Alojamientos</a>
+  <a routerLink="/body" *ngIf="isLoggedIn()">Paquetes de viaje</a>
+  <a routerLink="/crud" class="nav-item" *ngIf="isLoggedIn()">Clientes</a>
+</div>
+
+<div class="icon">
+  <div class="username" *ngIf="isLoggedIn()">Bienvenido, {{ getUsernamee() }} <i class="fas fa-user"></i></div>
+  <button class="btn-r" *ngIf="isLoggedIn(); else loginTemplate" (click)="logout()">Cerrar sesión</button>
+  <ng-template #loginTemplate>
+    <button class="btn" (click)="login()">Iniciar sesión</button>
+  </ng-template>
+</div>
+
+    <!-- <div class="fas fa-search"></div>
+    <div class="fas fa-user"></div>
+</div>
+  
+
+</header>
+<!-- END HEADER SECTION -->
+
+<!-- <img src="assets/img.svg" class="nav-img" alt=""> -->
+<!-- <button mat-raised-button (click)="openDialogSesion()">Inicia sesión</button> -->
+
+
+
+ <!-- <div class="fas fa-user" id="login-btn" (click)="openDialog()">
+    <a *ngIf="loggedIn" (click)="cerrarSesion()">Cerrar sesión</a>
+    </div> -->
+
+    <!-- <div *ngIf="!loggedIn" (click)="openDialog()">
+      <i class="fas fa-user"></i>
+      <span>Iniciar sesión</span>
+    </div>
+    
+    <div *ngIf="loggedIn" (click)="cerrarSesion()">
+      <i class="fas fa-user"></i>
+      <span>Cerrar sesión</span>
+    </div> -->
+
+    <!-- <button *ngIf="isLoggedIn(); else loginTemplate" (click)="logout()">Cerrar sesión</button>
+<ng-template #loginTemplate>
+  <button (click)="login()">Iniciar sesión</button>
+</ng-template> -->

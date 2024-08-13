@@ -1,0 +1,240 @@
+/* @import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination'; */
+
+@import url("https://fonts.googleapis.com/css2? family=Montserrat:ital,wght@0,300;0,500;0,900;1,300;1,500;1,800&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+:root {
+  --orange: #ff7800;
+  --black: #130f40;
+  --sky: #6aa9d5;
+  --blue: #234a66;
+  --light-color: #666;
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  --border: 0.2em solid rgba(0, 0, 0, 0.1);
+  --outline: 0.1rem solid rgba(0, 0, 0, 0.1);
+  --outline-hover: 0.2rem solid var(--black);
+  /* --border: 0.1rem solid rgba(255, 255, 255, 0.2); */
+  --borderlog: rgba(0, 0, 0, 0.3);
+  --transparency: rgba(0, 0, 0, 0.7);
+  --btnhover: rgba(255, 165, 0, 0.2);
+  --form: #666;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+
+*::selection {
+  background: #ff7700;
+}
+
+section {
+  /* padding: 2rem 9%; */
+  /* padding-top: 3rem;
+  padding-bottom: 3rem; */
+  padding: 3rem 2rem 3rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  
+/* Carousel*/
+.img {
+  max-width: 100%;
+  /* object-fit: cover; */
+  background-size: cover;
+}
+
+.container-all {
+  position: relative;
+  max-width: 1000px;
+  max-height: 450px;
+  width: 100%;
+  height: 100%;
+  border-radius: 3rem;
+  overflow: hidden;
+}
+
+.slide {
+  display: flex;
+  transform: translate3d(0, 0, 0);
+  /* 600ms */
+  transition: all 600ms linear;
+  animation-name: autoplay;
+  animation-duration: 6.5s;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  z-index: -1;
+}
+
+.item-slide {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-grow: 0;
+  min-width: 100%;
+}
+
+.item-slide span,
+.item-slide h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.item-slide span {
+  background-color: rgba(42, 29, 4, 0.731);
+  color: #ff7700;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  border: .2rem solid #ff7800;
+  border-radius: 5rem;
+  top: 250px;
+}
+
+.item-slide h3 {
+font-size: 24px;
+  color: #fff;
+  text-transform: uppercase;
+  top: 200px;
+}
+
+
+
+
+
+
+.slide .item-slide img {
+  /* max-width: 100%;
+  height: auto; */
+  width:auto;
+  height: 500px;
+  object-fit: cover;
+  
+}
+
+.pagination {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.pagination-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #ff7800;
+  width: 16px;
+  height: 16px;
+  border-radius: 5rem;
+  overflow: hidden;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.5);
+  margin: 0 10px;
+  text-align: center;
+  transition: all 300ms;
+}
+
+.pagination-item:hover {
+  transform: scale(2);
+}
+
+.pagination-item img {
+  display: inline-block;
+  max-width: none;
+  height: 100%;
+  transform: scale(1);
+  opacity: 0;
+  transition: all 300ms;
+}
+
+.pagination-item:hover img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+input[id="1"]:checked ~ .slide {
+  animation: none;
+  transform: translate3d(0, 0, 0);
+}
+
+input[id="1"]:checked ~ .pagination .pagination-item[for="1"] {
+  background: #fff;
+}
+
+input[id="2"]:checked ~ .slide {
+  animation: none;
+  transform: translate3d(calc(-100% * 1), 0, 0);
+}
+
+input[id="2"]:checked ~ .pagination .pagination-item[for="2"] {
+  background: #fff;
+}
+
+input[id="3"]:checked ~ .slide {
+  animation: none;
+  transform: translate3d(calc(-100% * 2), 0, 0);
+}
+
+input[id="3"]:checked ~ .pagination .pagination-item[for="3"] {
+  background: #fff;
+}
+
+@keyframes autoplay {
+  /* se divide 100 entre las 3 imagenes que se tiene */
+  33% {
+    transform: translate3d(calc(-100% * 0), 0, 0);
+  }
+  66% {
+    transform: translate3d(calc(-100% * 1), 0, 0);
+  }
+  100% {
+    transform: translate3d(calc(-100% * 2), 0, 0);
+  }
+}
+
+@media (max-widht: 792px) {
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+}
+
+@media (max-widht: 680px) {
+  section {
+    padding: 0;
+    margin: 0; /* Elimina el margen para ajustarse a la pantalla */
+    width: 100%; /* Ajusta el ancho al 100% */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+}

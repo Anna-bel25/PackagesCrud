@@ -1,0 +1,68 @@
+<link rel="shortcut icon" href="assets/img/airplane.png" type="image/x-icon" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css"/>
+
+<link href="https://fonts.googleapis.com/css2? family=Montserrat:ital,wght@0,300;0,500;0,900;1,300;1,500;1,800&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+
+
+
+<mat-card class="card">
+    <mat-card-title><h3>Bienvenido de vuelta</h3></mat-card-title>
+    <mat-card-subtitle><h4>Inicia sesión</h4></mat-card-subtitle>
+
+    <div *ngIf="alert" class="alert alert-danger alert-dismissible" role="alert" data-auto-dismiss>
+      <strong>Acceso incorrecto!</strong> 
+      <h4>Verificar el usuario y/o la contraseña.</h4>
+    </div>
+
+    <mat-card-content>
+
+      <div class="content">
+        
+        <form [formGroup]="usuarioLogin" (ngSubmit)="onSubmit()">
+
+          <!-- <mat-form-field class="campos-field">
+              <input matInput placeholder="Usuario" formControlName="usuario">
+          </mat-form-field>
+  
+          <mat-form-field class="campos-field">
+              <input type="password" matInput placeholder="Password" formControlName="password">
+          </mat-form-field> -->
+
+
+          <mat-form-field class="campos-field">
+            <mat-label>Cedula</mat-label>
+            <input matInput placeholder="Cedula" formControlName="Cedula" required>
+            <mat-error *ngIf="Cedula.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+    
+    
+          <mat-form-field appearance="fill" class="campos-field">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password" required>
+            <a mat-icon-button matSuffix (click)="togglePasswordVisibility()" matTooltip="{{hide ? 'Show password' : 'Hide password'}}"><i class="fa-sharp fa-regular fa-eye"></i></a>
+            <mat-error *ngIf="Password.invalid">{{getErrorMessagePassword()}}</mat-error>
+          </mat-form-field>
+
+
+          <div class="content-btn">
+            <button class="btn" [disabled] = "!usuarioLogin.valid">Aceptar</button>
+            <button class="btn" (click)="cancel()">Cancelar</button>
+          </div>
+          
+          
+          
+          <!-- <a class="btn" [class.disabled]="!usuarioLogin.valid" (click)="onSubmit()">Aceptar</a> -->
+          <!-- <a class="btn" (click)="cancelar()">Cancelar</a>-->
+
+      </form>
+
+    </div>
+
+
+  </mat-card-content>
+
+  
+  </mat-card>
+
